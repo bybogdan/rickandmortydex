@@ -22,8 +22,19 @@ export const CharacterCard: Component<IComp> = (props) => {
             {character.name}
           </h5>
           <p class="text-gray-700 text-base mb-4">{character.species}</p>
-          <p class="text-gray-600 text-xs">{character.status}</p>
-          <p class="text-gray-600 text-xs">{character.id}</p>
+          <div class="flex gap-1 items-center">
+            {character.status === "Alive" ? (
+              <div class="bg-green-400 rounded-[50%] w-3 h-3"></div>
+            ) : null}
+            {character.status === "Dead" ? (
+              <div class="bg-red-400 rounded-[50%] w-3 h-3"></div>
+            ) : null}
+            {character.status === "unknown" ? (
+              <div class="bg-yellow-400 rounded-[50%] w-3 h-3"></div>
+            ) : null}
+            <p class="text-gray-600 text-xs">{character.status}</p>
+          </div>
+          <p class="text-gray-600 text-xs">id: {character.id}</p>
         </div>
       </div>
     </li>
